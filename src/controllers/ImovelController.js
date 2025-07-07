@@ -52,7 +52,7 @@ module.exports = {
       if (!imovel) return res.status(404).json({ error: 'Imóvel não encontrado' });
 
       await imovel.destroy();
-      res.status(204).send();
+      res.status(200).json({ mensagem: "Imóvel deletado com sucesso" });
     } catch (error) {
       console.error('Erro ao deletar imóvel:', error);
       res.status(400).json({ error: error.message, details: error.parent?.message });
